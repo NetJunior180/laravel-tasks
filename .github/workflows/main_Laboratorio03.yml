@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy PHP app to Azure Web App - AppWebLaravelMysql
+name: Build and deploy PHP app to Azure Web App - Laboratorio03
 
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.3'
 
       - name: Check if composer.json exists
         id: check_files
@@ -61,15 +61,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_96F166BDB40448F19A2BA22C19C05518 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B29085AB16094BD59BF46854A0E71414 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8970BA5B08604DAABF6570D500E0B173 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B8D0B8E8058842EAA6E5462BF07A825D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F0908CC1900244BAA2C52ABDF2F0EE18 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FDD894F3E41847918DF7A66C8FA91F6F }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'AppWebLaravelMysql'
+          app-name: 'Laboratorio03'
           slot-name: 'Production'
           package: .
           
